@@ -34,7 +34,7 @@ class Course extends Model
         return $this->hasMany(CourseChapter::class, 'course_id', 'id')->orderBy('order');
     }
 
-    function lessons() : HasMany
+    function lessions() : HasMany
     {
         return $this->hasMany(CourseChapterLession::class, 'course_id', 'id');
     }
@@ -44,7 +44,7 @@ class Course extends Model
         return $this->hasMany(Review::class, 'course_id', 'id');
     }
 
-    function enrollments() : HasMany
+function enrollments() : HasMany
     {
         return $this->hasMany(Enrollment::class, 'course_id', 'id');
     }

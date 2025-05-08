@@ -43,7 +43,7 @@ class FrontendController extends Controller
       $featuredInstructorCourses = Course::whereIn('id', json_decode($featuredInstructor?->featured_courses ?? '[]'))->get();
       $testimonials = Testimonial::all();
       $blogs = Blog::where('status', 1)->latest()->limit(3)->get();
-     
+      
     return view('frontend.pages.home.index', compact(
       'hero',
       'feature',
@@ -59,7 +59,7 @@ class FrontendController extends Controller
       'blogs'
    ));
 
-   } 
+   }
 
 
    function about() : View

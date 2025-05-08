@@ -9,7 +9,7 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
 
 class CourseLevelController extends Controller
 {
@@ -63,6 +63,7 @@ class CourseLevelController extends Controller
         $request->validate(['name' => ['required', 'max:255', 'unique:course_levels,name,'.$course_level->id]]);
 
         $course_level->name = $request->name;
+        $course_level->slug = Str::slug($request->name);
         $course_level->save();
 
         notyf()->success('Created Successfully!');

@@ -12,6 +12,7 @@ use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
 use App\Models\User;
 use App\Traits\FileUpload;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -207,6 +208,22 @@ class CourseController extends Controller
                     'redirect' => route('admin.courses.index')
                 ]);
                 break;
+        }
+    }
+    public function destroy(Course $course)
+    {
+
+        try {
+            foreach ($course->lessions as $item) {
+                $item->delete();
+                # code...
+            }
+            $course->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        }catch(Exception $e) {
+            logger("Course Level Error >> ".$e);
+            return response(['message' => 'Something went wrong!'], 500);
         }
     }
 }

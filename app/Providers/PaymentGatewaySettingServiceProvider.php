@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Service\PaymentGatewaySettingService;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class PaymentGatewaySettingServiceProvider extends ServiceProvider
@@ -22,7 +23,9 @@ class PaymentGatewaySettingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $paymentGatewaySetting = $this->app->make(PaymentGatewaySettingService::class);
-        $paymentGatewaySetting->setGlobalSettings();
+        if (!app()->runningInConsole() || Schema::hasTable('payment_settings')) {
+            $paymentGatewaySetting = $this->app->make(PaymentGatewaySettingService::class);
+            $paymentGatewaySetting->setGlobalSettings();
+        }
     }
 }

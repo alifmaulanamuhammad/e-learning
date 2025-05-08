@@ -10,7 +10,7 @@ use App\Models\CourseCategory;
 use App\Traits\FileUpload;
 use Exception;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class CourseSubCategoryController extends Controller
 {
     use FileUpload;
@@ -36,7 +36,7 @@ class CourseSubCategoryController extends Controller
      */
     public function store(CourseSubCategoryStoreRequest $request, CourseCategory $course_category)
     {
-        
+
         $category = new CourseCategory();
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'));

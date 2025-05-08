@@ -7,6 +7,7 @@ use App\Models\CustomPage;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CustomPageController extends Controller
 {
@@ -39,10 +40,10 @@ class CustomPageController extends Controller
             'seo_description' => ['nullable', 'string', 'max:255'],
             'status' => ['nullable', 'boolean'],
         ]);
-       
+
         $page = new CustomPage();
         $page->title = $request->title;
-        $page->slug = \Str::slug($request->title);
+        $page->slug = Str::slug($request->title);
         $page->description = $request->description;
         $page->seo_title = $request->seo_title;
         $page->seo_description = $request->seo_description;
@@ -77,10 +78,10 @@ class CustomPageController extends Controller
             'seo_description' => ['nullable', 'string', 'max:255'],
             'status' => ['nullable', 'boolean'],
         ]);
-       
+
         $page = CustomPage::findOrFail($id);
         $page->title = $request->title;
-        $page->slug = \Str::slug($request->title);
+        $page->slug = Str::slug($request->title);
         $page->description = $request->description;
         $page->seo_title = $request->seo_title;
         $page->seo_description = $request->seo_description;

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Service\SettingService;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class SettingServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (!Schema::hasTable('settings')) return;
         $settings = $this->app->make(SettingService::class);
         $settings->setGlobalSettings();
 

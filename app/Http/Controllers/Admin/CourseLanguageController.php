@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
 
 class CourseLanguageController extends Controller
 {
@@ -70,6 +70,7 @@ class CourseLanguageController extends Controller
         $request->validate(['name' => ['required', 'max:255', 'unique:course_languages,name,'.$course_language->id]]);
 
         $course_language->name = $request->name;
+        $course_language->slug = Str::slug($request->name);
         $course_language->save();
 
         notyf()->success('Created Successfully!');
