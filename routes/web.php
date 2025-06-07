@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\InstructorDashboardController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\ShowCaseController;
 use App\Http\Controllers\Frontend\StudentDashboardController;
 use App\Http\Controllers\Frontend\StudentOrderController;
 use App\Http\Controllers\Frontend\WithdrawController;
@@ -57,6 +58,7 @@ use Illuminate\Support\Facades\Route;
  Route::post('newsletter-subscribe', [FrontendController::class, 'subscribe'])->name('newsletter.subscribe');
  /** about route */
  Route::get('about', [FrontendController::class, 'about'])->name('about.index');
+    Route::get('showcase',[ShowCaseController::class,'index'])->name('showcase.index');
 
  /** Contact route */
  Route::get('contact', [FrontendContactController::class, 'index'])->name('contact.index');
@@ -104,9 +106,13 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'p
    Route::get('review', [StudentDashboardController::class, 'review'])->name('review.index');
    Route::delete('review/{id}', [StudentDashboardController::class, 'reviewDestroy'])->name('review.destroy');
 
+   //  chat message
+   Route::get('chat', [StudentDashboardController::class, 'review'])->name('chat.index');
+
    Route::get('orders', [StudentOrderController::class, 'index'])->name('orders.index');
    Route::get('orders/{order}', [StudentOrderController::class, 'show'])->name('orders.show');
-
+    /** ShowCase Project*/
+    Route::get('showcase',[ShowCaseController::class,'index'])->name('showcase.index');
 });
 
 /**

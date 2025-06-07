@@ -32,12 +32,14 @@
         <div class="container container-tight py-4">
             <div class="text-center mb-4">
                 <a href="." class="navbar-brand navbar-brand-autodark">
-                    <img src="./static/logo.svg" width="110" height="32" alt="Tabler"
+                    <img src="{{ asset('frontend/assets/images/singin.png') }}" width="110" height="32" alt="Tabler"
                         class="navbar-brand-image">
                 </a>
             </div>
+            
             <x-auth-session-status class="mb-4" :status="session('status')" />
             <div class="card card-md">
+
                 <div class="card-body">
                     <h2 class="h2 text-center mb-4">Login to your account</h2>
                     <form action="{{ route('admin.login.store') }}" method="POST" autocomplete="off" novalidate>

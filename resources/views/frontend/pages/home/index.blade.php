@@ -59,7 +59,7 @@
     <!--===========================
         VIDEO START
     ============================-->
-    @include('frontend.pages.home.sections.video-section')  
+    @include('frontend.pages.home.sections.video-section')
     <!--===========================
         VIDEO END
     ============================-->
@@ -68,7 +68,7 @@
     <!--===========================
         BRAND START
     ============================-->
-    @include('frontend.pages.home.sections.brand-section')  
+    @include('frontend.pages.home.sections.brand-section')
     <!--===========================
         BRAND END
     ============================-->
@@ -77,7 +77,7 @@
     <!--===========================
         QUALITY COURSES START
     ============================-->
-    @include('frontend.pages.home.sections.quality-course-section')  
+    @include('frontend.pages.home.sections.quality-course-section')
     <!--===========================
         QUALITY COURSES END
     ============================-->
@@ -86,7 +86,16 @@
     <!--===========================
         TESTIMONIAL START
     ============================-->
-    @include('frontend.pages.home.sections.testimonial-section')  
+    @include('frontend.pages.home.sections.testimonial-section')
+
+    <!--===========================
+        TESTIMONIAL END
+    ============================-->
+
+    <!--===========================
+        INSTRUCTOR START
+    ============================-->
+    @include('frontend.pages.home.sections.instructor-section')
 
     <!--===========================
         TESTIMONIAL END
@@ -96,7 +105,7 @@
     <!--===========================
         BLOG 4 START
     ============================-->
-    @include('frontend.pages.home.sections.blog-section')  
+    @include('frontend.pages.home.sections.blog-section')
     <!--===========================
         BLOG 4 END
     ============================-->

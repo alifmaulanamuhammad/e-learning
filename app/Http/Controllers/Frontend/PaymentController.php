@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Service\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Stripe\Checkout\Session as StripeSession;
 use Stripe\Stripe;
 use Razorpay\Api\Api as RazorpayApi;
+use illumninate\Support\Str;
+use Xendit\Configuration;
+use Xendit\Invoice\CreateInvoiceRequest;
+use Xendit\Invoice\InvoiceApi;
 
 class PaymentController extends Controller
 {
+
 
     function orderSuccess()
     {
@@ -144,9 +150,10 @@ class PaymentController extends Controller
         return redirect()->away($response->url);
     }
 
+
     function stripeSuccess(Request $request) {
         Stripe::setApiKey(config('gateway_settings.stripe_secret'));
-        
+
         $response = StripeSession::retrieve($request->session_id);
         if($response->payment_status === 'paid') {
             $transactionId = $response->payment_intent;
@@ -176,6 +183,32 @@ class PaymentController extends Controller
     function stripeCancel(Request $request) {
         return redirect()->route('order.failed');
     }
+
+    // PAYMENT XENDIT NGAB
+// function payWithXendit(Request $request)
+//     {
+//         Configuration::setXenditKey('xnd_public_development_PjMwk2bXnSSGO0rst3weGlxqNQwTyZQws1RrBoQwvzrceQJW8RxDnhaciMP6013');
+
+//         $payableAmount = (cartTotal() * 100) * config('gateway_settings.stripe_rate');
+//         $quantityCount = cartCount();
+//         $apiInstance = new InvoiceApi();
+//         $createInvoiceRequest = new CreateInvoiceRequest([
+//             'external_id' => 'test1234',
+//             'description' => 'Test Invoice',
+//             'amount' => 10000,
+//             'currency' => 'IDR',
+//             "customer" => array(
+//             "given_names" => "John",
+//             "email" => "johndoe@example.com",
+//             ),
+//             "success_redirect_url"=>"https://www.google.com",
+//             "failure_redirect_url"=>"https://www.google.com",
+//         ]);
+
+//         // return redirect()->away($response->url);
+//     }
+
+
 
     function razorpayRedirect() {
         return view('frontend.pages.razorpay-redirect');
@@ -214,4 +247,8 @@ class PaymentController extends Controller
         throw $th;
        }
     }
+    // Set your Merchant Server Key
+
+
 }
+

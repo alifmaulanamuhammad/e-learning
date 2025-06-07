@@ -61,11 +61,11 @@
                                                 </label>
                                             </div>
                                             @endforeach
-                                          
+
                                         </div>
                                     </li>
                                     @endforeach
-                                    
+
                                 </ul>
                             </div>
 
@@ -79,7 +79,7 @@
                                     </label>
                                 </div>
                                 @endforeach
-                                
+
                             </div>
 
                             <div class="wsus__sidebar_course_lavel rating">
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
 
-                          
+
 
                             <div class="wsus__sidebar_course_lavel duration">
                                 <h3>Language</h3>
@@ -128,7 +128,7 @@
                                     </label>
                                 </div>
                                 @endforeach
-                                
+
                             </div>
 
                             <div class="wsus__sidebar_rating">
@@ -146,7 +146,7 @@
                 <div class="col-xl-9 col-lg-8 order-lg-1">
                     <div class="wsus__page_courses_header wow fadeInUp">
                         <p>Showing <span>1-{{ $courses->count() }}</span> Of <span>{{ $courses->total() }}</span> Results</p>
-                        
+
                         <form action="{{ route('courses.index') }}">
                             <p>Sort-by:</p>
                             <select class="select_js" name="order" onchange="this.form.submit()">
@@ -161,7 +161,7 @@
                             <div class="wsus__single_courses_3">
                                 <div class="wsus__single_courses_3_img">
                                     <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
-                                    
+
                                     <span class="time"><i class="far fa-clock"></i> {{ convertMinutesToHours($course->duration) }}</span>
                                 </div>
                                 <div class="wsus__single_courses_text_3">
@@ -173,14 +173,14 @@
                                             <i class="fas fa-star"></i>
                                             @else
                                             <i class="far fa-star"></i>
-                                            @endif  
-                                               
+                                            @endif
+
                                             @endfor
-                                            
+
                                             <span>({{ number_format($course->reviews()->avg('rating'), 2) ?? 0 }} Rating)</span>
                                         </p>
                                     </div>
-    
+
                                     <a class="title" href="{{ route('courses.show', $course->slug) }}">{{ $course->title }}</a>
                                     <ul>
                                         <li>{{ $course->lessons()->count() }} Lessons</li>
@@ -206,7 +206,9 @@
                             </div>
                         </div>
                         @empty
-                        <p>No data Found</p>
+                        <span class="alert alert-danger content-justify-center" >
+                            Course Not Found
+                        </span>
                         @endforelse
                     </div>
                     <div class="wsus__pagination mt_50 wow fadeInUp">

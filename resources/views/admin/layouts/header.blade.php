@@ -28,7 +28,6 @@
                             d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
                     </svg>
                 </a>
-                
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
@@ -42,8 +41,8 @@
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <a href="{{ route('admin.profile.index') }}" class="dropdown-item">Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a href="./settings.html" class="dropdown-item">Settings</a>
-                    <a href="./sign-in.html"
+                    <a href="{{ route('admin.settings.index') }}" class="dropdown-item">Settings</a>
+                    <a href="{{ route('admin.logout') }}"
                         onclick="event.preventDefault();
                                                 getElementById('logout').submit();"
                         class="dropdown-item">Logout</a>
@@ -53,8 +52,15 @@
                 </div>
             </div>
         </div>
+
         <div class="collapse navbar-collapse" id="navbar-menu">
-            
+            <a href="{{ route('home') }}" target="_blank" class="btn btn-success">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"
+                stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-app-window"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                    <path d="M6 8h.01" /><path d="M9 8h.01" /></svg>
+                Front End
+                <i class="fas fa-window-restore"></i>
+            </a>
         </div>
     </div>
 </header>

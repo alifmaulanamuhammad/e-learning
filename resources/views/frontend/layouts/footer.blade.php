@@ -22,7 +22,7 @@
                                     <img src="{{ asset($socialLink->icon) }}" alt="" style="width: 20px !important; height: 20px !important;">
                                 </a></li>
                                 @endforeach
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                 @foreach($footerColumnOne as $footerColumn)
                                 <li><a href="{{ $footerColumn->url }}">{{ $footerColumn->title }}</a></li>
                                 @endforeach
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -81,6 +81,17 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col-lg-2 col-sm-6 col-md-3 wow fadeInUp">
+                        <div class="wsus__footer_3_subscribe">
+                            <h3>Comunity</h3>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('showcase.index') }}" >ShowCase</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,7 +101,7 @@
                     <div class="col-12">
                         <div class="wsus__footer_copyright_text text-center" style="display: block;">
                             <p>{{ $footer?->copyright }}</p>
-                           
+
                         </div>
                     </div>
                 </div>

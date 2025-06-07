@@ -214,7 +214,7 @@ class CourseController extends Controller
     {
 
         try {
-            foreach ($course->lessions as $item) {
+            foreach ($course->lessons as $item) {
                 $item->delete();
                 # code...
             }

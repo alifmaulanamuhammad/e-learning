@@ -17,6 +17,7 @@ use App\Models\Hero;
 use App\Models\LatestCourseSection;
 use App\Models\Newsletter;
 use App\Models\Testimonial;
+use App\Models\User;
 use App\Models\VideoSection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -42,8 +43,9 @@ class FrontendController extends Controller
       $featuredInstructor = FeaturedInstructor::first();
       $featuredInstructorCourses = Course::whereIn('id', json_decode($featuredInstructor?->featured_courses ?? '[]'))->get();
       $testimonials = Testimonial::all();
+      $instructor = User::where('role','instructor');
       $blogs = Blog::where('status', 1)->latest()->limit(3)->get();
-      
+
     return view('frontend.pages.home.index', compact(
       'hero',
       'feature',
@@ -56,6 +58,7 @@ class FrontendController extends Controller
       'featuredInstructor',
       'featuredInstructorCourses',
       'testimonials',
+      'instructor',
       'blogs'
    ));
 

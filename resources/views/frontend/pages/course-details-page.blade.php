@@ -18,7 +18,7 @@
                     <div class="col-12 wow fadeInUp">
                         <div class="wsus__breadcrumb_text">
                             <p class="rating">
-                                @for($i = 1; $i <= 5; $i++) 
+                                @for($i = 1; $i <= 5; $i++)
                                 @if($i <= $course->reviews()->avg('rating'))
                                 <i class="fas fa-star"></i>
                                 @else
@@ -125,13 +125,11 @@
                                                             @endif
                                                         </li>
                                                         @endforeach
-
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                         @endforeach
-
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +166,6 @@
                                                         {{ $course->instructor->students()->count() }} Students
                                                     </li>
                                                 </ul>
-                                               
                                                 <p class="description">
                                                     {{ $course->instructor->bio }}
                                                 </p>
@@ -210,7 +207,7 @@
                                                    @for($i = 1; $i <= number_format($course->reviews()->avg('rating'), 2) ?? 0; $i++)
                                                     <i class="fas fa-star"></i>
                                                    @endfor
-                                                   
+
                                                 </p>
                                                 <h4>{{ $course->reviews()->count() }} Ratings</h4>
                                             </div>
@@ -285,7 +282,7 @@
                                                     @for($i = 1; $i <= $review->rating; $i++)
                                                     <i class="fas fa-star"></i>
                                                     @endfor
-                                                    
+
                                                 </span>
                                             </h6>
                                             <p>{{ $review->review }}</p>
@@ -296,7 +293,7 @@
                                     <div>
                                         {{ $reviews->links() }}
                                     </div>
-                                
+
                                 </div>
                                 @auth
                                 <div class="wsus__courses_review_input box_area mt_40">
@@ -315,7 +312,7 @@
                                                 <textarea rows="7" placeholder="Review" name="review"></textarea>
                                             </div>
                                             <div class="col-12 mt-3">
-                                                <button type="submit" class="common_btn">Submit Now</button>    
+                                                <button type="submit" class="common_btn">Submit Now</button>
                                             </div>
                                         </div>
                                     </form>
@@ -348,7 +345,7 @@
                                Price: {{ config('settings.currency_icon') }}{{ $course->price }}
                             @endif
                         </h3>
-                      
+
                         <div class="wsus__courses_sidebar_list_info">
                             <ul>
                                 <li>
@@ -386,7 +383,7 @@
                             </ul>
                             <a class="common_btn add_to_cart" data-course-id="{{ $course->id }}" href="" >Add to Cart <i class="far fa-arrow-right"></i></a>
                         </div>
-                        
+
                         <div class="wsus__courses_sidebar_share_area">
                             <span>Share:</span>
                             <ul>
@@ -429,13 +426,78 @@
                                     <p><span>Instructor</span></p>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            {{-- <div class="row">
+                <h1 class="text-">Course Relate</h1>
+                <div class="row">
+                @forelse($courseRelate as $item)
+                <div class="col-xl-6 wow fadeInUp">
+                    <div class="wsus__single_blog_4">
+
+                                    <a class="title" href="{{ route('courses.show', $course->slug) }}">{{ $course->title }}</a>
+
+
+                        <a href="#" class="wsus__single_blog_4_img">
+
+                        </a>
+
+                </div>
+
+                @empty
+                <div>No Course Found</div>
+                @endforelse
+            </div>
+
+            </div>
+        </div> --}}
+        
     </section>
+    <section class="wsus__testimonial pt_120 xs_pt_80">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 m-auto wow fadeInUp">
+                <div class="wsus__section_heading mb_40">
+                    <h5>Testimonial</h5>
+                    <h2>See what your students say</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row testimonial_slider">
+        @forelse ($courseRelate as $item)
+            <div class="col-xl-4 wow fadeInUp">
+                <div class="wsus__single_testimonial">
+                                {{-- <a class="title" href="">{{ $courseRelate->title }}</a> --}}
+                                    <a class="title" href="{{ route('courses.show', $item->slug) }}">{{ $item->title }}</a>
+
+                    <p class="description"></p>
+
+                    <div class="wsus__testimonial_footer">
+                        <div class="img">
+                            <img src="" alt="user" class="img-fluid">
+                        </div>
+                        <h3>
+
+                            <span></span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="wsus__single_testimonial">
+                    <p class="alert alert-danger">
+                         Course Not Found
+                    </p>
+
+                </div>
+        @endforelse
+    </div>
+</section>
+
     <!--===========================
                 COURSES DETAILS END
             ============================-->

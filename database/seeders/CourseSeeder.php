@@ -16,7 +16,7 @@ use App\Models\QuizQuestion;
 use App\Models\QuizQuestionAnswer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class CourseSeeder extends Seeder
 {
     /**
@@ -214,7 +214,7 @@ class CourseSeeder extends Seeder
                 "created_at" => "2024-06-04 05:10:16",
                 "updated_at" => "2024-06-04 05:14:25",
             ),
-           
+
             array(
                 "id" => 4,
                 "title" => "Case Studies in Machine Learning",
@@ -276,7 +276,7 @@ class CourseSeeder extends Seeder
                 "updated_at" => "2024-06-04 07:01:55",
             ),
         );
-        
+
         $instructorList = array(1001, 1002, 1003, 1004, 1005, 1006, 1009, 1011, 1012);
         $categories = [9,10,11,12, 14, 15, 16, 17];
         foreach ($coursesNames as $courseName) {
@@ -342,7 +342,7 @@ class CourseSeeder extends Seeder
                     $courseLesson->order = $index;
                     $courseLesson->is_preview = $course_chapter_lessons[$index]['is_free'];
                     $courseLesson->status = $course_chapter_lessons[$index]['status'];
-                    
+
                     $courseLesson->save();
 
                 }

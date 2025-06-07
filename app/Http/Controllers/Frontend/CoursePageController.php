@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
-
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategory;
@@ -13,8 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class CoursePageController extends Controller
-{
+class CoursePageController extends Controller{
     function index(Request $request): View
     {
         // dd($request->all());
@@ -30,8 +27,7 @@ class CoursePageController extends Controller
                 }else {
                     $query->where('category_id', $request->category);
                 }
-            })
-            ->when($request->filled('main_category'), function($query) use ($request) {
+            })->when($request->filled('main_category'), function($query) use ($request) {
                 $query->whereHas('category', function($query) use ($request) {
                     $query->whereHas('parentCategory', function($query) use ($request){
                         $query->where('slug', $request->main_category);
@@ -63,9 +59,11 @@ class CoursePageController extends Controller
             ->where('status', 'active')
             ->firstOrFail();
         $reviews = Review::where('course_id', $course->id)->where('status', 1)->paginate(10);
-        
-
-        return view('frontend.pages.course-details-page', compact('course', 'reviews'));
+        $courseRelate = Course::where('category_id',$course->category_id)
+            ->whereNot('category_id',$course->course_id)
+            ->get();
+        // dd($courseRelate);
+        return view('frontend.pages.course-details-page', compact('course', 'reviews','courseRelate'));
     }
 
     function storeReview(Request $request) : RedirectResponse

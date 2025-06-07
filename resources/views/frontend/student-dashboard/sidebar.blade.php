@@ -33,15 +33,15 @@
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
-                   Enrolled Courses 
+                   Enrolled Courses
                 </a>
             </li>
             <li>
-                <a href="{{ route('student.orders.index') }}" class="{{ sidebarItemActive(['student.review.index']) }}">
+                <a href="{{ route('student.orders.index') }}" class="{{ sidebarItemActive(['student.order.index']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
-                  Orders 
+                  Orders
                 </a>
             </li>
             <li>
@@ -50,6 +50,14 @@
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
                    Reviews
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('student.chat.index') }}" class="{{ sidebarItemActive(['student.chat.index']) }}">
+                    <div class="img">
+                        <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
+                    </div>
+                   Message
                 </a>
             </li>
 

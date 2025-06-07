@@ -119,7 +119,7 @@
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <script src="{{ asset('admin/assets/dist/libs/tinymce/tinymce.min.js') }}" defer></script>
 
     <!--main/custom js-->
@@ -140,7 +140,7 @@
             @endforeach
         @endif
     </script>
-
+    @yield('scripts')
 </body>
 
 </html>

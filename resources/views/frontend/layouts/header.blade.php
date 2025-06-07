@@ -161,7 +161,18 @@ $customPages = \App\Models\CustomPage::where('status', 1)->where('show_at_nav', 
         <ul class="mobile_menu_header d-flex flex-wrap">
             <li><a href="{{ route('cart.index') }}"><i class="far fa-shopping-basket"></i> <span class="cart_count">{{ cartCount() }}</span></a>
             </li>
-            <li><a href="{{ route('login') }}"><i class="far fa-user"></i></a></li>
+            <li>
+             @if(!auth()->guard('web')->check())
+                <a  href="{{ route('login') }}">Sign in</a>
+             @endif
+             @if(user()?->role == 'student')
+                 <a  href="{{ route('student.dashboard') }}"><i class="far fa-user"></i></a></a>
+             @endif
+             @if(user()?->role == 'instructor')
+                 <a  href="{{ route('instructor.dashboard') }}"><i class="far fa-user"></i></a></a>
+             @endif
+            </li>
+            {{-- <li><a href="{{ route('login') }}"><i class="far fa-user"></i></a></li> --}}
         </ul>
 
         <form class="mobile_menu_search" action="{{ route('courses.index') }}">

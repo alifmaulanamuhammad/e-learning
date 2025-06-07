@@ -330,7 +330,7 @@
                                 </a>
 
                             </div>
-                           
+
                         </div>
 
                         <div class="dropdown-menu-columns">
@@ -370,7 +370,7 @@
 
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
-                           
+
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.hero.*']) }}" href="{{ route('admin.hero.index') }}">
                                     Hero
@@ -394,7 +394,7 @@
                                     Latest Courses
                                 </a>
                             </div>
-                           
+
                              <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.become-instructor-section.*']) }}" href="{{ route('admin.become-instructor-section.index') }}">
                                     Become Instructor Banner
@@ -414,7 +414,7 @@
 
                              <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.featured-instructor-section.*']) }}" href="{{ route('admin.featured-instructor-section.index') }}">
-                                   Featured Instructor 
+                                   Featured Instructor
                                 </a>
                             </div>
 
@@ -425,16 +425,13 @@
                             </div>
                              <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.counter-section.*']) }}" href="{{ route('admin.counter-section.index') }}">
-                                   Counter 
+                                   Counter
                                 </a>
                             </div>
 
                         </div>
                     </div>
                 </li>
-
-                
-
                 <li class="nav-item dropdown {{ sidebarItemActive(['admin.contact.*', 'admin.contact-setting.*']) }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -451,16 +448,15 @@
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.contact.*']) }}" href="{{ route('admin.contact.index') }}">
-                                   Contact Cards 
+                                   Contact Cards
                                 </a>
 
                             </div>
-                           
+
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.contact-setting.*']) }}" href="{{ route('admin.contact-setting.index') }}">
-                                   Contact Setting 
+                                   Contact Setting
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -487,25 +483,25 @@
                             </div>
                              <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.footer.*']) }}" href="{{ route('admin.footer.index') }}">
-                                  Footer Content 
+                                  Footer Content
                                 </a>
-                            </div>                          
+                            </div>
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.footer-column-one.index']) }}" href="{{ route('admin.footer-column-one.index') }}">
                                   Footer Column One
                                 </a>
-                            </div> 
+                            </div>
                             <div class="dropdown-menu-column ">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.footer-column-two.*']) }}" href="{{ route('admin.footer-column-two.index') }}">
-                                  Footer Column Two 
+                                  Footer Column Two
                                 </a>
-                            </div> 
+                            </div>
                             <div class="dropdown-menu-column ">
                                 <a class="dropdown-item {{ sidebarItemActive(['admin.social-links.*']) }}" href="{{ route('admin.social-links.index') }}">
                                   Social Links
                                 </a>
-                            </div>  
-                            
+                            </div>
+
                         </div>
                     </div>
                 </li>
@@ -552,7 +548,7 @@
                             <i class="ti ti-skull"></i>
                         </span>
                         <span class="nav-link-title">
-                           Database Clear 
+                           Database Clear
                         </span>
                     </a>
                 </li>

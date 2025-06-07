@@ -70,10 +70,11 @@
     <div class="page page-center">
         <div class="container container-tight py-4">
             <div class="text-center mb-4">
-                <a href="." class="navbar-brand navbar-brand-autodark">
-                    <img src="./static/logo.svg" width="110" height="32" alt="Tabler"
-                        class="navbar-brand-image">
-                </a>
+                <a href="#" class="navbar-brand navbar-brand-autodark">
+                    {{-- <img src="{{ asset('frontend/assets/images/arrow_up.png') }}" width="110" height="32" alt="Tabler"
+                        class="navbar-brand-image"> --}}
+                    <img src="{{ asset('frontend/assets/images/arrow_up.png') }}" alt="">
+                    </a>
             </div>
 
             <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -86,7 +87,7 @@
                         @csrf
                         <!-- Password Reset Token -->
                         <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                        
+
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
 
@@ -98,7 +99,7 @@
                         <div class="mb-2">
                             <label class="form-label">
                                 Password
-                               
+
                             </label>
                             <div class="input-group input-group-flat">
                                 <input type="password" class="form-control password" name="password" placeholder="Your password"
@@ -123,7 +124,7 @@
                         <div class="mb-2">
                             <label class="form-label">
                                 Confirm Password
-                                
+
                             </label>
                             <div class="input-group input-group-flat">
                                 <input type="password" class="form-control confirm-password" name="password_confirmation" placeholder="Your password"
@@ -147,7 +148,7 @@
                         </div>
 
 
-                 
+
 
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary w-100">Reset Password</button>

@@ -1,14 +1,13 @@
 @extends('admin.layouts.master')
-
 @section('content')
     <!-- Page header -->
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
-                <div class="col">
+                <div class="col-md-6 d-flex">
                     <!-- Page pre-title -->
                     <h2 class="page-title">
-                       Dashboard 
+                       Dashboard
                     </h2>
                 </div>
 
@@ -373,7 +372,7 @@
                                                 </a>
                                               </td>
                                                 <td class="text-start">
-                                                    {{ $order->customer->name }} 
+                                                    {{ $order->customer->name }}
                                                 </td>
                                               <td>
                                                 {{ $order->total_amount }} {{ $order->currency }}
